@@ -141,6 +141,6 @@ uvicorn app.main:app --reload
 服务启动后，在浏览器中打开 http://127.0.0.1:8000/docs。
 你将看到 FastAPI 自动生成的交互式 API 文档 (Swagger UI)，可以在这里直接对所有接口进行测试。
 
+###导入Dify
 
-
-
+通过文件下两个DSL文件导入Dify进行使用，我使用的模型是硅基流动的Qwen2.5-72B-Instruct-128K.（请使用具有较长上下文的模型，否则效果不好）
