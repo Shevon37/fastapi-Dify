@@ -1,0 +1,622 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: SQL测试用例生成执行器
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.15@775950e2071600bd3ba0415ec306c1b1582bc4a2a94688d642f627d112d87cd3
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1749708813685-llm
+      source: '1749708813685'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: llm-source-1749711012003-target
+      source: llm
+      sourceHandle: source
+      target: '1749711012003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: iteration
+      id: 1749711012003-source-1749711045565-target
+      source: '1749711012003'
+      sourceHandle: source
+      target: '1749711045565'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        sourceType: iteration-start
+        targetType: code
+      id: 1749711045565start-source-1749711085792-target
+      source: 1749711045565start
+      sourceHandle: source
+      target: '1749711085792'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        sourceType: code
+        targetType: code
+      id: 1749711085792-source-1749711131995-target
+      source: '1749711085792'
+      sourceHandle: source
+      target: '1749711131995'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        sourceType: code
+        targetType: http-request
+      id: 1749711131995-source-1749711177534-target
+      source: '1749711131995'
+      sourceHandle: source
+      target: '1749711177534'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        sourceType: http-request
+        targetType: code
+      id: 1749711177534-source-1749711369574-target
+      source: '1749711177534'
+      sourceHandle: source
+      target: '1749711369574'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1749711045565-source-1749711470342-target
+      source: '1749711045565'
+      sourceHandle: source
+      target: '1749711470342'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1749711470342-source-1749711520034-target
+      source: '1749711470342'
+      sourceHandle: source
+      target: '1749711520034'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1749711520034-source-1749711603515-target
+      source: '1749711520034'
+      sourceHandle: source
+      target: '1749711603515'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 53
+      id: '1749708813685'
+      position:
+        x: 30
+        y: 413
+      positionAbsolute:
+        x: 30
+        y: 413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 4df40e38-d7b4-4381-929b-6d1526f0ced6
+          role: system
+          text: "你是一个智能 SQL 测试用例生成助手。请根据用户提供的数据库表结构，生成一组 SQL 查询语句，用于测试系统对 SQL 的兼容性和安全性。\n\
+            \n请遵循以下原则：\n\n1. **理解表结构**：\n   - 表名、字段名、字段类型、约束（如 NOT NULL、UNIQUE、FOREIGN\
+            \ KEY）等信息。\n   - 识别主键、外键、索引字段，用于生成 JOIN 或 WHERE 条件。\n\n2. **提高查询覆盖率**：\n\
+            \   - 生成多样化的查询，覆盖常见的 SQL 操作类型：\n     - 简单 SELECT 查询\n     - WHERE 条件（包括单条件、多条件、IN、LIKE、BETWEEN\
+            \ 等）\n     - JOIN 操作（INNER JOIN、LEFT JOIN 等）\n     - 聚合函数（COUNT、SUM、AVG、MAX、MIN）\n\
+            \     - GROUP BY + HAVING\n     - ORDER BY、LIMIT、OFFSET\n     - 子查询和嵌套查询\n\
+            \   - 尝试组合多个操作，生成复杂但合理的 SQL。\n\n3. **保证 SQL 的安全性与合理性**：\n   - 避免生成非法 SQL（如字段名错误、表名不存在）\n\
+            \   - 不允许字段值为 NULL 的字段使用 `IS NULL` 查询（除非字段允许 NULL）\n   - 不允许将 `username`\
+            \ 或其他敏感字段设置为字符串 `'null'`（防止无效测试）\n   - 避免生成可能引发 SQL 注入的语句（如 `'1'='1'`\
+            \ 等）\n   - 确保字段值类型匹配（如整数字段不使用字符串比较）\n\n4. **优化生成体验**：\n   - 使用真实、贴近用户行为的字段值（如用户名为普通字符串，不为非法值）\n\
+            \   - 生成的 SQL 应该清晰、可读、可测试\n   - 如果有示例数据，尽量贴近示例逻辑\n\n---\n我会给你表结构。\n请生成\
+            \ 3 条 SQL 查询语句，覆盖上述提到的各种操作，并确保每条 SQL 都满足字段约束和语法规则。\n### 输出要求\n用json输出测试用例二维数组，测试用例对象属性包含：测试目的(test_name)、sql语句(sql)，不要```sql标签，不要```json标签，直接输出json内容，不要换行符。"
+        - id: b01a1a22-44c1-48b0-a5cf-9d95a4334e1b
+          role: user
+          text: '### 表结构
+
+            DROP TABLE IF EXISTS order_items;DROP TABLE IF EXISTS orders;DROP TABLE
+            IF EXISTS products;DROP TABLE IF EXISTS customers;-- ------------------------------
+            1. 客户表 (customers)-- ----------------------------CREATE TABLE `customers`
+            (`id` INT AUTO_INCREMENT PRIMARY KEY,`name` VARCHAR(100) NOT NULL,`email`
+            VARCHAR(100) NOT NULL UNIQUE,`phone` VARCHAR(20),`address` TEXT,`registration_date`
+            TIMESTAMP DEFAULT CURRENT_TIMESTAMP) COMMENT=''存储客户基本信息'';-- ------------------------------
+            2. 商品表 (products)-- ----------------------------CREATE TABLE `products`
+            (`id` INT AUTO_INCREMENT PRIMARY KEY,`name` VARCHAR(255) NOT NULL,`description`
+            TEXT,`price` DECIMAL(10, 2) NOT NULL,`stock_quantity` INT NOT NULL DEFAULT
+            0,`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP) COMMENT=''存储商品信息，包括价格和库存'';--
+            ------------------------------ 3. 订单表 (orders)-- ----------------------------CREATE
+            TABLE `orders` (`id` INT AUTO_INCREMENT PRIMARY KEY,`customer_id` INT
+            NOT NULL,`order_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,`status` ENUM(''pending'',
+            ''processing'', ''shipped'', ''delivered'', ''cancelled'') NOT NULL DEFAULT
+            ''pending'',`total_amount` DECIMAL(10, 2),FOREIGN KEY (`customer_id`)
+            REFERENCES `customers`(`id`) ON DELETE RESTRICT) COMMENT=''存储订单的总体信息和状态'';--
+            ------------------------------ 4. 订单详情表 (order_items)-- ----------------------------CREATE
+            TABLE `order_items` (`id` INT AUTO_INCREMENT PRIMARY KEY,`order_id` INT
+            NOT NULL,`product_id` INT NOT NULL,`quantity` INT NOT NULL,`price_per_unit`
+            DECIMAL(10, 2) NOT NULL,FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`)
+            ON DELETE CASCADE,FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
+            ON DELETE RESTRICT) COMMENT=''连接订单和商品，记录每个订单包含的具体商品和数量'';'
+        - id: 55182037-51e3-4c6f-a274-8831e9d62937
+          role: user
+          text: '### 数组结构
+
+            [{"test_name":"","sql":""},,,]'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: llm
+      position:
+        x: 334
+        y: 413
+      positionAbsolute:
+        x: 334
+        y: 413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\nfunction main({arg1, arg2}) {\n    return {\n        result: JSON.parse(arg1)\n\
+          \    }\n}\n"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - llm
+          - text
+          variable: arg1
+      height: 53
+      id: '1749711012003'
+      position:
+        x: 638
+        y: 413
+      positionAbsolute:
+        x: 638
+        y: 413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: continue-on-error
+        height: 426
+        is_parallel: true
+        iterator_selector:
+        - '1749711012003'
+        - result
+        output_selector:
+        - '1749711369574'
+        - result
+        output_type: array[object]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1749711045565start
+        title: 迭代
+        type: iteration
+        width: 1420
+      height: 426
+      id: '1749711045565'
+      position:
+        x: 942
+        y: 413
+      positionAbsolute:
+        x: 942
+        y: 413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1420
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1749711045565start
+      parentId: '1749711045565'
+      position:
+        x: 60
+        y: 105.5
+      positionAbsolute:
+        x: 1002
+        y: 518.5
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "\nfunction main({arg1, arg2}) {\n    return {\n        result: arg1.test_name\n\
+          \    }\n}\n"
+        code_language: javascript
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 - 处理输入
+        type: code
+        variables:
+        - value_selector:
+          - '1749711045565'
+          - item
+          variable: arg1
+      height: 53
+      id: '1749711085792'
+      parentId: '1749711045565'
+      position:
+        x: 204
+        y: 103
+      positionAbsolute:
+        x: 1146
+        y: 516
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\nfunction main({arg1, arg2}) {\n    return {\n        result: arg1.sql\n\
+          \    }\n}\n"
+        code_language: javascript
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 - sql
+        type: code
+        variables:
+        - value_selector:
+          - '1749711045565'
+          - item
+          variable: arg1
+      height: 53
+      id: '1749711131995'
+      parentId: '1749711045565'
+      position:
+        x: 508
+        y: 103
+      positionAbsolute:
+        x: 1450
+        y: 516
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-1508
+            key: ''
+            type: text
+            value: '{"sql":"{{#1749711131995.result#}}"}'
+          type: json
+        desc: ''
+        headers: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求
+        type: http-request
+        url: http://host.docker.internal:8000/api/test/execute
+        variables: []
+      height: 139
+      id: '1749711177534'
+      parentId: '1749711045565'
+      position:
+        x: 812
+        y: 60
+      positionAbsolute:
+        x: 1754
+        y: 473
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\nfunction main({arg1, arg2,sql}) {\n    return {\n        result:\
+          \ {task_name:arg1,sql:sql,status:arg2}\n    }\n}\n"
+        code_language: javascript
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1749711045565'
+        outputs:
+          result:
+            children: null
+            type: object
+        selected: false
+        title: 代码执行 4
+        type: code
+        variables:
+        - value_selector:
+          - '1749711085792'
+          - result
+          variable: arg1
+        - value_selector:
+          - '1749711177534'
+          - body
+          variable: arg2
+        - value_selector:
+          - '1749711131995'
+          - result
+          variable: sql
+      height: 53
+      id: '1749711369574'
+      parentId: '1749711045565'
+      position:
+        x: 1116
+        y: 103
+      positionAbsolute:
+        x: 2058
+        y: 516
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\nfunction main({arg1, arg2}) {\n    return {\n        result: JSON.stringify(arg1)\n\
+          \    }\n}\n"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 5
+        type: code
+        variables:
+        - value_selector:
+          - '1749711045565'
+          - output
+          variable: arg1
+      height: 53
+      id: '1749711470342'
+      position:
+        x: 2422
+        y: 413
+      positionAbsolute:
+        x: 2422
+        y: 413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: fb94ed57-7439-4dad-a568-cee7a513674d
+          role: system
+          text: 根据给你的sql测试用例，给我生成测试报告，可以用表格的地方用表格展示。
+        - id: adc13792-06b8-4d83-90d5-5844184c1d27
+          role: user
+          text: '### 测试用例情况
+
+            {{#1749711470342.result#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749711520034'
+      position:
+        x: 2726
+        y: 413
+      positionAbsolute:
+        x: 2726
+        y: 413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1749711520034.text#}}'
+        desc: ''
+        selected: true
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1749711603515'
+      position:
+        x: 3030
+        y: 413
+      positionAbsolute:
+        x: 3030
+        y: 413
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -9.531547583270822
+      y: 121.11618103751819
+      zoom: 0.3341945613686457

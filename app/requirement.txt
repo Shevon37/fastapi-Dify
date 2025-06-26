@@ -1,0 +1,6 @@
+fastapi[all]>=0.85.0
+python-dotenv==0.19.1
+tortoise-orm[aiomysql]==0.19.0
+python-multipart==0.0.20
+passlib[bcrypt]
+python-jose[cryptography]

@@ -1,0 +1,1577 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: AI SQL执行器
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/jina:0.0.7@2c6439d59e51b63c8cccf9c80f59707bab5d84e595b1dad70209ced3aa032599
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.15@775950e2071600bd3ba0415ec306c1b1582bc4a2a94688d642f627d112d87cd3
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: knowledge-retrieval
+      id: 1749699632752-source-1749700057534-target
+      selected: false
+      source: '1749699632752'
+      sourceHandle: source
+      target: '1749700057534'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: 1749700372385-source-1749702038329-target
+      selected: false
+      source: '1749700372385'
+      sourceHandle: source
+      target: '1749702038329'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: 1749700376251-source-1749702038329-target
+      selected: false
+      source: '1749700376251'
+      sourceHandle: source
+      target: '1749702038329'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: 1749700378907-source-1749702038329-target
+      selected: false
+      source: '1749700378907'
+      sourceHandle: source
+      target: '1749702038329'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: 1749700576781-source-1749702038329-target
+      selected: false
+      source: '1749700576781'
+      sourceHandle: source
+      target: '1749702038329'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1749705457104-source-1749705603731-target
+      selected: false
+      source: '1749705457104'
+      sourceHandle: source
+      target: '1749705603731'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1749980429289-source-1749980509287-target
+      selected: false
+      source: '1749980429289'
+      sourceHandle: source
+      target: '1749980509287'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749705603731-true-1749980429289-target
+      selected: false
+      source: '1749705603731'
+      sourceHandle: 'true'
+      target: '1749980429289'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 1749980509287-true-1749700372385-target
+      selected: false
+      source: '1749980509287'
+      sourceHandle: 'true'
+      target: '1749700372385'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749705603731-60c408b0-2872-4b99-bc5f-94aeaf0121ab-1749981166349-target
+      selected: false
+      source: '1749705603731'
+      sourceHandle: 60c408b0-2872-4b99-bc5f-94aeaf0121ab
+      target: '1749981166349'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1749981166349-source-1749981229082-target
+      selected: false
+      source: '1749981166349'
+      sourceHandle: source
+      target: '1749981229082'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 1749981229082-true-1749700376251-target
+      selected: false
+      source: '1749981229082'
+      sourceHandle: 'true'
+      target: '1749700376251'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 1749981229082-70a60933-59e2-4fb1-adef-5fd8a84c4234-1749981364816-target
+      selected: false
+      source: '1749981229082'
+      sourceHandle: 70a60933-59e2-4fb1-adef-5fd8a84c4234
+      target: '1749981364816'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: 1749981364816-source-1749702038329-target
+      selected: false
+      source: '1749981364816'
+      sourceHandle: source
+      target: '1749702038329'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749705603731-c2cbf31f-9358-4ccf-a4d8-4c967fc4346f-1749981504968-target
+      selected: false
+      source: '1749705603731'
+      sourceHandle: c2cbf31f-9358-4ccf-a4d8-4c967fc4346f
+      target: '1749981504968'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1749981504968-source-1749981464868-target
+      selected: false
+      source: '1749981504968'
+      sourceHandle: source
+      target: '1749981464868'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 1749981464868-true-1749700378907-target
+      selected: false
+      source: '1749981464868'
+      sourceHandle: 'true'
+      target: '1749700378907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 1749981464868-693b4262-e5ad-4e2a-858c-b9c4de4f733b-1749700576781-target
+      selected: false
+      source: '1749981464868'
+      sourceHandle: 693b4262-e5ad-4e2a-858c-b9c4de4f733b
+      target: '1749700576781'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749981464868-9378e5d1-0ebc-4aca-a85a-aac854a21fb5-1749986336497-target
+      selected: false
+      source: '1749981464868'
+      sourceHandle: 9378e5d1-0ebc-4aca-a85a-aac854a21fb5
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749981464868-53697a6c-31f4-4c4e-b081-6939a33de116-1749986336497-target
+      selected: false
+      source: '1749981464868'
+      sourceHandle: 53697a6c-31f4-4c4e-b081-6939a33de116
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749981464868-false-1749986336497-target
+      selected: false
+      source: '1749981464868'
+      sourceHandle: 'false'
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749981229082-13c1861d-b1a9-4692-ad8a-815e298da11c-1749986336497-target
+      selected: false
+      source: '1749981229082'
+      sourceHandle: 13c1861d-b1a9-4692-ad8a-815e298da11c
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749981229082-38ac701d-5411-4800-a4b9-0b0877f0fef1-1749986336497-target
+      selected: false
+      source: '1749981229082'
+      sourceHandle: 38ac701d-5411-4800-a4b9-0b0877f0fef1
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749981229082-false-1749986336497-target
+      selected: false
+      source: '1749981229082'
+      sourceHandle: 'false'
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749980509287-false-1749986336497-target
+      selected: false
+      source: '1749980509287'
+      sourceHandle: 'false'
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749980509287-b91df466-1c6c-41e0-83a7-6589c1d4cfaf-1749986336497-target
+      selected: false
+      source: '1749980509287'
+      sourceHandle: b91df466-1c6c-41e0-83a7-6589c1d4cfaf
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749980509287-e940bf02-ef99-41eb-8407-23d802544a87-1749986336497-target
+      selected: false
+      source: '1749980509287'
+      sourceHandle: e940bf02-ef99-41eb-8407-23d802544a87
+      target: '1749986336497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 1749986336497-source-1749986467240-target
+      selected: false
+      source: '1749986336497'
+      sourceHandle: source
+      target: '1749986467240'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1749702038329-source-1749986613005-target
+      selected: false
+      source: '1749702038329'
+      sourceHandle: source
+      target: '1749986613005'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1749986613005-source-1749988127252-target
+      selected: false
+      source: '1749986613005'
+      sourceHandle: source
+      target: '1749988127252'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: 1749986467240-source-1749702038329-target
+      selected: false
+      source: '1749986467240'
+      sourceHandle: source
+      target: '1749702038329'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1749700057534-source-1749700031875-target
+      selected: false
+      source: '1749700057534'
+      sourceHandle: source
+      target: '1749700031875'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1749706448414-source-1749705457104-target
+      selected: false
+      source: '1749706448414'
+      sourceHandle: source
+      target: '1749705457104'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1749700031875-source-1749996305594-target
+      source: '1749700031875'
+      sourceHandle: source
+      target: '1749996305594'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1749996305594-false-1749706448414-target
+      source: '1749996305594'
+      sourceHandle: 'false'
+      target: '1749706448414'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1749996305594-true-1750009123200-target
+      source: '1749996305594'
+      sourceHandle: 'true'
+      target: '1750009123200'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1750009123200-source-1749996320663-target
+      source: '1750009123200'
+      sourceHandle: source
+      target: '1749996320663'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 53
+      id: '1749699632752'
+      position:
+        x: 30
+        y: 310.5
+      positionAbsolute:
+        x: 30
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1749700057534'
+          - result
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: cd90dad8-9f9e-4701-9470-a8b049f6a1fd
+          role: system
+          text: "角色\n你是一个智能的 API 调度助手。你的唯一任务是精确地解析用户的自然语言指令，并将其转换为用于调用后端业务接口的、结构化的\
+            \ JSON 对象。\n可用操作 (API 列表)\n根据用户的意图，从下列可用操作中选择最合适的一个并构造JSON。对于每种操作，你必须严格按照指定的格式和参数定义{{#context#}}生成\
+            \ JSON。\n\n###【安全红线】: 如果用户指令包含任何形式的删除请求（如“删除”、“移除”、“注销”等），你必须拒绝执行。你的输出应该是一个包含\
+            \ error 字段的JSON对象，明确告知用户此操作不被允许。\n### 并且一定要输出#不安全#标号。\n\n顾客 (Customer)\
+            \ 操作\n1. 注册新顾客 (register_customer)\n当用户说: \"创建新顾客\", \"注册一个用户\", \"帮我开个户\"\
+            ...\n需要提取的参数:\nname: (字符串, 必填) - 顾客姓名\nphone: (字符串, 必填) - 顾客的手机号\npassword:\
+            \ (字符串, 必填) - 顾客的登录密码\nemail: (字符串, 可选)\naddress: (字符串, 可选)\n输出 JSON 格式:\n\
+            {\n  \"operation\": \"register_customer\",\n  \"payload\": {\n    \"name\"\
+            : \"...\",\n    \"phone\": \"...\",\n    \"password\": \"...\",\n    \"\
+            email\": \"...\",\n    \"address\": \"...\"\n  }\n}\n\n\n2. 更新顾客信息 (update_customer)\n\
+            当用户说: \"更新ID为5的顾客信息\", \"把王五的电话改成...\"...\n需要提取的参数:\ncustomer_id: (数字,\
+            \ 必填)\nname, phone, email, address: (可选)\n输出 JSON 格式:\n{\n  \"operation\"\
+            : \"update_customer\",\n  \"payload\": {\n    \"customer_id\": 5,\n  \
+            \  \"phone\": \"13912345678\"\n  }\n}\n\n\n3. 删除顾客 (delete_customer)\n\
+            当用户说: \"删除顾客ID为10的用户\"...\n需要提取的参数: customer_id (数字, 必填)\n输出 JSON 格式:\n\
+            {\n  \"operation\": \"delete_customer\",\n  \"payload\": { \"customer_id\"\
+            : 10 }\n}\n\n\n4. 查询单个顾客 (get_customer_by_id)\n当用户说: \"查找ID为1的顾客\"...\n\
+            需要提取的参数: customer_id (数字, 必填)\n输出 JSON 格式:\n{\n  \"operation\": \"get_customer_by_id\"\
+            ,\n  \"payload\": { \"customer_id\": 1 }\n}\n\n\n商品 (Product) 操作\n1. 创建新商品\
+            \ (create_product)\n当用户说: \"上架一个新商品\", \"添加一个产品\"...\n需要提取的参数:\nname:\
+            \ (字符串, 必填)\nprice: (数字, 必填)\nstock_quantity: (数字, 必填)\ndescription: (字符串,\
+            \ 可选)\n输出 JSON 格式:\n{\n  \"operation\": \"create_product\",\n  \"payload\"\
+            : {\n    \"name\": \"新款耳机\",\n    \"price\": 299.99,\n    \"stock_quantity\"\
+            : 100,\n    \"description\": \"降噪蓝牙耳机\"\n  }\n}\n\n\n2. 更新商品信息 (update_product)\n\
+            当用户说: \"把ID为101的商品价格改成350\"...\n需要提取的参数:\nproduct_id: (数字, 必填)\nname,\
+            \ price, stock_quantity, description: (可选)\n输出 JSON 格式:\n{\n  \"operation\"\
+            : \"update_product\",\n  \"payload\": {\n    \"product_id\": 101,\n  \
+            \  \"price\": 350.00\n  }\n}\n\n\n(你可以继续在这里为删除商品、查询单个/所有商品等添加类似的定义)\n\
+            订单 (Order) 操作\n1. 创建新订单 (create_order)\n当用户说: \"下单\", \"创建一个新订单\", \"\
+            买东西\"...\n需要提取的参数:\ncustomer_id: (数字, 必填) - 为哪个顾客下单\nitems: (列表, 必填) -\
+            \ 每个元素包含 product_id 和 quantity\n输出 JSON 格式:\n{\n  \"operation\": \"create_order\"\
+            ,\n  \"payload\": {\n    \"customer_id\": 3,\n    \"items\": [\n     \
+            \ { \"product_id\": 101, \"quantity\": 2 },\n      { \"product_id\": 205,\
+            \ \"quantity\": 1 }\n    ]\n  }\n}\n\n\n2. 更新订单状态 (update_order)\n当用户说:\
+            \ \"把订单ID为50的改成已发货状态\"...\n需要提取的参数:\norder_id: (数字, 必填)\nstatus: (字符串,\
+            \ 必填, 必须是 pending, processing, shipped, delivered, cancelled 之一)\n输出 JSON\
+            \ 格式:\n{\n  \"operation\": \"update_order\",\n  \"payload\": {\n    \"\
+            order_id\": 50,\n    \"status\": \"shipped\"\n  }\n}\n\n\n(你可以继续在这里为删除订单、查询单个/所有订单等添加类似的定义)\n\
+            硬性规则\n严格遵循格式: 你的最终输出必须是一个纯粹的、单一的 JSON 对象。\n操作必须明确: operation 字段的值必须是上面“可用操作”中定义的名称之一（如\
+            \ register_customer）。\n参数精确匹配: payload 里的字段名和数据类型，必须和你为该操作定义的参数完全对应。\n\
+            处理缺失信息: 如果用户的指令中缺少某个必填参数，你应该在 payload 中将它的值设为 null，以便后续处理。\n绝对禁止输出任何解释、注释或\
+            \ Markdown 标记。\n示例\n用户指令: 帮我注册一个新用户，名字叫王五，手机是13987654321，密码是 a-very-secure-password。\n\
+            你的JSON输出:\n{\n  \"operation\": \"register_customer\",\n  \"payload\":\
+            \ {\n    \"name\": \"王五\",\n    \"phone\": \"13987654321\",\n    \"password\"\
+            : \"a-very-secure-password\",\n    \"email\": null,\n    \"address\":\
+            \ null\n  }\n}\n\n\n用户指令: 顾客ID为3的人想买2个ID为101的商品和1个ID为205的商品。\n你的JSON输出:\n\
+            {\n  \"operation\": \"create_order\",\n  \"payload\": {\n    \"customer_id\"\
+            : 3,\n    \"items\": [\n      { \"product_id\": 101, \"quantity\": 2 },\n\
+            \      { \"product_id\": 205, \"quantity\": 1 }\n    ]\n  }\n}\n\n\n用户指令\n\
+            {{#sys.query#}}\n你的JSON输出:\n输出中一定要包含payload，payload中为查询的数据结构。如果查询发现不包含该接口，请直接生成SQL语句，SQL语句在payload中以列表形式输出。\n\
+            \n注意，查询列表操作即为查询用户要求的表中的所有数据，请使用api操作，payload中可以不传参数。"
+        - id: 9a37e1a9-1be7-405b-92ed-bd62c6bcb0a5
+          role: user
+          text: '只有查询列表、更新信息、创建新数据有api操作，可以按照api传入参数格式填写；
+
+            其他操作，请生成sql语句。'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749700031875'
+      position:
+        x: 638
+        y: 310.5
+      positionAbsolute:
+        x: 638
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - cXIEpP40N7ijUpASe4iA/vi1OpyfYooVwBcDzl2LyjB+0jwh/RU2GvaZ9iw8QRCN
+        - dUusSXiuKsAft9cIIAxQAa3zMREdT/3hm0w+/03FqpaAYbcTjuJkE9AuwBXTFcBI
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: reranking_model
+          reranking_model:
+            model: jina-reranker-v2-base-multilingual
+            provider: langgenius/jina/jina
+          top_k: 4
+        query_variable_selector:
+        - sys
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 119
+      id: '1749700057534'
+      position:
+        x: 334
+        y: 310.5
+      positionAbsolute:
+        x: 334
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-262
+            key: ''
+            type: text
+            value: ''
+          type: json
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求
+        type: http-request
+        url: http://host.docker.internal:8000/api/customers/get/list
+        variables: []
+      height: 109
+      id: '1749700372385'
+      position:
+        x: 3070
+        y: 310.5
+      positionAbsolute:
+        x: 3070
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-277
+            key: ''
+            type: text
+            value: '{{#1749706448414.result#}}'
+          type: json
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 2
+        type: http-request
+        url: http://host.docker.internal:8000/api/orders/get/list
+        variables: []
+      height: 109
+      id: '1749700376251'
+      position:
+        x: 3070
+        y: 595.5
+      positionAbsolute:
+        x: 3070
+        y: 595.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-245
+            key: ''
+            type: text
+            value: '{{#1749706448414.result#}}'
+          type: json
+        desc: ''
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 3
+        type: http-request
+        url: http://host.docker.internal:8000/api/products/create
+        variables: []
+      height: 109
+      id: '1749700378907'
+      position:
+        x: 3070
+        y: 1058.5
+      positionAbsolute:
+        x: 3070
+        y: 1058.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-288
+            key: ''
+            type: text
+            value: '{{#1749706448414.result#}}'
+          type: json
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 4
+        type: http-request
+        url: http://host.docker.internal:8000/api/products/get/list
+        variables: []
+      height: 109
+      id: '1749700576781'
+      position:
+        x: 3070
+        y: 1207.5
+      positionAbsolute:
+        x: 3070
+        y: 1207.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1749700372385'
+          - body
+        - - '1749700376251'
+          - body
+        - - '1749700378907'
+          - body
+        - - '1749700576781'
+          - body
+        - - '1749981362425'
+          - body
+        - - '1749981364816'
+          - body
+        - - '1749981366730'
+          - body
+        - - '1749986467240'
+          - body
+      height: 261
+      id: '1749702038329'
+      position:
+        x: 3374
+        y: 744.5
+      positionAbsolute:
+        x: 3374
+        y: 744.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 7ee2ddee-6153-4bc4-a065-673db6ceeee2
+          role: system
+          text: '判断用户操作类型，直接回复相应代号。
+
+            代号：#客户信息操作#、#订单信息操作#、#产品信息操作#'
+        - id: 6985b903-9d2b-44d6-8ba5-db2d5234cb5b
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749705457104'
+      position:
+        x: 1550
+        y: 310.5
+      positionAbsolute:
+        x: 1550
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: f96cd93c-c55c-4f51-9abd-6da6f4273f7b
+            value: '#客户信息操作'
+            varType: string
+            variable_selector:
+            - '1749705457104'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 60c408b0-2872-4b99-bc5f-94aeaf0121ab
+          conditions:
+          - comparison_operator: contains
+            id: a86a918a-581f-47b3-8899-923ced6f19a9
+            value: '#订单信息操作'
+            varType: string
+            variable_selector:
+            - '1749705457104'
+            - text
+          id: 60c408b0-2872-4b99-bc5f-94aeaf0121ab
+          logical_operator: and
+        - case_id: c2cbf31f-9358-4ccf-a4d8-4c967fc4346f
+          conditions:
+          - comparison_operator: contains
+            id: f84074c0-ea50-43ed-8333-9d25df1563f3
+            value: '#产品信息操作'
+            varType: string
+            variable_selector:
+            - '1749705457104'
+            - text
+          id: c2cbf31f-9358-4ccf-a4d8-4c967fc4346f
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 221
+      id: '1749705603731'
+      position:
+        x: 1854
+        y: 310.5
+      positionAbsolute:
+        x: 1854
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\nfunction main({arg1, arg2}) {\n    return {\n        result: JSON.stringify(JSON.parse(arg1).payload)\n\
+          \    }\n}\n"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1749700031875'
+          - text
+          variable: arg1
+      height: 53
+      id: '1749706448414'
+      position:
+        x: 1246
+        y: 310.5
+      positionAbsolute:
+        x: 1246
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 2ce6ee7b-83af-4bb0-afd0-37389b142cb8
+          role: system
+          text: '判断用户操作类型（查询或其他）结合{{#context#}}，直接回复相应代号。
+
+            代号：#获取单个顾客信息#、#顾客列表查询#、#顾客信息删除#、#顾客信息更改#'
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749980429289'
+      position:
+        x: 2158
+        y: 310.5
+      positionAbsolute:
+        x: 2158
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 4e163ca3-c693-4ad3-9d2e-b8d46fab0fb2
+            value: '#顾客列表查询'
+            varType: string
+            variable_selector:
+            - '1749980429289'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: e940bf02-ef99-41eb-8407-23d802544a87
+          conditions:
+          - comparison_operator: contains
+            id: 8e221aa4-bb67-49a4-99ee-63d6c82d4912
+            value: '#获取单个顾客信息'
+            varType: string
+            variable_selector:
+            - '1749980429289'
+            - text
+          id: e940bf02-ef99-41eb-8407-23d802544a87
+          logical_operator: and
+        - case_id: b91df466-1c6c-41e0-83a7-6589c1d4cfaf
+          conditions:
+          - comparison_operator: contains
+            id: d3bf215f-5df6-49e0-b846-7cdefe251215
+            value: '#顾客信息更改'
+            varType: string
+            variable_selector:
+            - '1749980429289'
+            - text
+          id: b91df466-1c6c-41e0-83a7-6589c1d4cfaf
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 221
+      id: '1749980509287'
+      position:
+        x: 2462
+        y: 310.5
+      positionAbsolute:
+        x: 2462
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 1c2bd69e-aa99-4041-98d2-5d08d172b919
+          role: system
+          text: '判断用户操作类型（查询或其他）结合{{#context#}}，直接回复相应代号。
+
+
+            有可能为连环操作，以最后目的为准。
+
+
+            代号：#订单列表查询操作#、#订单删除操作#、#订单增加操作#、#订单修改操作#'
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749981166349'
+      position:
+        x: 2158
+        y: 595.5
+      positionAbsolute:
+        x: 2158
+        y: 595.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: d6376d12-16fe-4e95-9bb6-5fe886da91d7
+            value: '#订单列表查询操作'
+            varType: string
+            variable_selector:
+            - '1749981166349'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 70a60933-59e2-4fb1-adef-5fd8a84c4234
+          conditions:
+          - comparison_operator: contains
+            id: 4c9c40ad-42a5-49b3-9ad2-f10b072a55cf
+            value: '#订单增加操作'
+            varType: string
+            variable_selector:
+            - '1749981166349'
+            - text
+          id: 70a60933-59e2-4fb1-adef-5fd8a84c4234
+          logical_operator: and
+        - case_id: 13c1861d-b1a9-4692-ad8a-815e298da11c
+          conditions:
+          - comparison_operator: contains
+            id: 39108b81-9355-4e79-85d9-aed950aaca46
+            value: '#订单修改操作'
+            varType: string
+            variable_selector:
+            - '1749981166349'
+            - text
+          id: 13c1861d-b1a9-4692-ad8a-815e298da11c
+          logical_operator: and
+        - case_id: 38ac701d-5411-4800-a4b9-0b0877f0fef1
+          conditions:
+          - comparison_operator: contains
+            id: 1270748b-e645-4220-987b-897a458416ad
+            value: '#单个订单查询操作'
+            varType: string
+            variable_selector:
+            - '1749981166349'
+            - text
+          id: 38ac701d-5411-4800-a4b9-0b0877f0fef1
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 269
+      id: '1749981229082'
+      position:
+        x: 2462
+        y: 571.5
+      positionAbsolute:
+        x: 2462
+        y: 571.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-720
+            key: ''
+            type: text
+            value: '{{#1749706448414.result#}}'
+          type: json
+        desc: ''
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 7
+        type: http-request
+        url: http://host.docker.internal:8000/api/orders/create
+        variables: []
+      height: 109
+      id: '1749981364816'
+      position:
+        x: 3070
+        y: 744.5
+      positionAbsolute:
+        x: 3070
+        y: 744.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: e9c82d6f-5043-4dbd-9ccf-193a5dd04f28
+            value: '#产品增加操作'
+            varType: string
+            variable_selector:
+            - '1749981504968'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 693b4262-e5ad-4e2a-858c-b9c4de4f733b
+          conditions:
+          - comparison_operator: contains
+            id: 1c54ad4a-63e8-4915-b90b-64654df192cd
+            value: '#产品列表获取'
+            varType: string
+            variable_selector:
+            - '1749981504968'
+            - text
+          id: 693b4262-e5ad-4e2a-858c-b9c4de4f733b
+          logical_operator: and
+        - case_id: 9378e5d1-0ebc-4aca-a85a-aac854a21fb5
+          conditions:
+          - comparison_operator: contains
+            id: 49f9e0d1-4a2f-4cdd-b9e3-5ada27dad14e
+            value: '#产品更新操作'
+            varType: string
+            variable_selector:
+            - '1749981504968'
+            - text
+          id: 9378e5d1-0ebc-4aca-a85a-aac854a21fb5
+          logical_operator: and
+        - case_id: 53697a6c-31f4-4c4e-b081-6939a33de116
+          conditions:
+          - comparison_operator: contains
+            id: 489a8923-0f7f-46f6-b6a8-b381a8b449df
+            value: '#单个产品查询操作'
+            varType: string
+            variable_selector:
+            - '1749981504968'
+            - text
+          id: 53697a6c-31f4-4c4e-b081-6939a33de116
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 4
+        type: if-else
+      height: 269
+      id: '1749981464868'
+      position:
+        x: 2462
+        y: 1034.5
+      positionAbsolute:
+        x: 2462
+        y: 1034.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: f0c3dd65-72aa-46b0-943e-920cd91d132c
+          role: system
+          text: '判断用户操作类型（查询或其他）结合{{#context#}}，直接回复相应代号。
+
+
+            有可能为连环操作，以最后目的为准。
+
+
+            代号：#产品增加操作#、#产品列表获取#、#产品更新操作#、#产品删除操作#、#单个产品查询操作#'
+        - id: 60b33894-14de-47e1-9032-cd8209e2aec0
+          role: user
+          text: ''
+        selected: false
+        title: LLM 6
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749981504968'
+      position:
+        x: 2158
+        y: 1058.5
+      positionAbsolute:
+        x: 2158
+        y: 1058.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 921a62db-b488-443d-9b8f-a2cc65e4483f
+          role: system
+          text: "请根据输入参数{{#sys.query#}}以及用户请求，并且参考表结构，合理转换为纯SQL语句，可包含多句SQL语句。\n\n\
+            ##输出格式\n只包含SQL语句，不含`sql`标号，不含换行符。若有多个sql语句，使用列表List结构输出。\n参考格式为\n[\n \
+            \  \"SQL语句1\",\n   \"SQL语句2\"\n  ]"
+        - id: 32c1ffd2-abde-42b6-97b1-2b4f061278e9
+          role: user
+          text: "-- ----------------------------\n-- 客户表 (customers)\n-- ----------------------------\n\
+            CREATE TABLE `customers` (\n    `id` INT AUTO_INCREMENT PRIMARY KEY,\n\
+            \    `email` VARCHAR(100) UNIQUE,\n    `name` VARCHAR(100) NOT NULL,\n\
+            \    `phone` VARCHAR(20) NOT NULL UNIQUE,\n    `hashed_password` VARCHAR(128)\
+            \ NOT NULL,\n    `address` TEXT,\n    `registration_date` TIMESTAMP DEFAULT\
+            \ CURRENT_TIMESTAMP\n) COMMENT='存储顾客（系统用户）的信息';\n\n\n-- ----------------------------\n\
+            -- 商品表 (products)\n-- ----------------------------\nCREATE TABLE `products`\
+            \ (\n    `id` INT AUTO_INCREMENT PRIMARY KEY,\n    `name` VARCHAR(255)\
+            \ NOT NULL,\n    `description` TEXT,\n    `price` DECIMAL(10, 2) NOT NULL,\n\
+            \    `stock_quantity` INT NOT NULL DEFAULT 0,\n    `created_at` TIMESTAMP\
+            \ DEFAULT CURRENT_TIMESTAMP\n) COMMENT='存储商品信息，包括价格和库存';\n\n\n-- ----------------------------\n\
+            -- 订单表 (orders)\n-- ----------------------------\nCREATE TABLE `orders`\
+            \ (\n    `id` INT AUTO_INCREMENT PRIMARY KEY,\n    `customer_id` INT NOT\
+            \ NULL,\n    `order_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    `status`\
+            \ ENUM('pending', 'processing', 'shipped', 'delivered', 'cancelled') NOT\
+            \ NULL DEFAULT 'pending',\n    `total_amount` DECIMAL(10, 2),\n    FOREIGN\
+            \ KEY (`customer_id`) REFERENCES `customers`(`id`) ON DELETE RESTRICT\n\
+            ) COMMENT='存储订单的总体信息和状态';\n\n\n-- ----------------------------\n-- 订单详情表\
+            \ (order_items)\n-- ----------------------------\nCREATE TABLE `order_items`\
+            \ (\n    `id` INT AUTO_INCREMENT PRIMARY KEY,\n    `order_id` INT NOT\
+            \ NULL,\n    `product_id` INT NOT NULL,\n    `quantity` INT NOT NULL,\n\
+            \    `price_per_unit` DECIMAL(10, 2) NOT NULL,\n    FOREIGN KEY (`order_id`)\
+            \ REFERENCES `orders`(`id`) ON DELETE CASCADE,\n    FOREIGN KEY (`product_id`)\
+            \ REFERENCES `products`(`id`) ON DELETE RESTRICT\n) COMMENT='连接订单和商品，记录每个订单包含的具体商品和数量';"
+        selected: false
+        title: LLM 6
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749986336497'
+      position:
+        x: 2766
+        y: 901.5
+      positionAbsolute:
+        x: 2766
+        y: 901.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-2483
+            key: ''
+            type: text
+            value: "{\n    \"sql_batch\":{{#1749986336497.text#}}\n}"
+          type: json
+        desc: ''
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 通用SQL执行器
+        type: http-request
+        url: http://host.docker.internal:8000/api/universalSql/execute-batch
+        variables: []
+      height: 125
+      id: '1749986467240'
+      position:
+        x: 3070
+        y: 893.5
+      positionAbsolute:
+        x: 3070
+        y: 893.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1749702038329'
+          - output
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 2e466c49-2667-4e80-97e7-55eca7e3867d
+          role: system
+          text: 请根据用户的要求{{#sys.query#}}以及执行结果{{#1749702038329.output#}}生成一份执行报告。说明接口或者sql语句的执行情况。
+        selected: false
+        title: LLM 7
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1749986613005'
+      position:
+        x: 3678
+        y: 744.5
+      positionAbsolute:
+        x: 3678
+        y: 744.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1749986613005.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1749988127252'
+      position:
+        x: 3982
+        y: 744.5
+      positionAbsolute:
+        x: 3982
+        y: 744.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: a140e4c4-ca90-46e6-bc36-ee1a474dfe7f
+            value: '#不安全'
+            varType: string
+            variable_selector:
+            - '1749700031875'
+            - text
+          - comparison_operator: contains
+            id: 16506002-1cee-4f84-a266-aa31e79a39bb
+            value: 删除操作
+            varType: string
+            variable_selector:
+            - '1749700031875'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 5
+        type: if-else
+      height: 151
+      id: '1749996305594'
+      position:
+        x: 942
+        y: 310.5
+      positionAbsolute:
+        x: 942
+        y: 310.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1750009123200.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 104
+      id: '1749996320663'
+      position:
+        x: 1550
+        y: 157.57142857142856
+      positionAbsolute:
+        x: 1550
+        y: 157.57142857142856
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct-128K
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - role: system
+          text: 用户输入的删除数据库表的请求{{#sys.query#}}不安全，你要帮我处理llm输出的报错信息{{#1749700031875.text#}}，告诉用户你输入的delete语句被禁止执行，存在安全风险。
+        selected: false
+        title: LLM 8
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1750009123200'
+      position:
+        x: 1256
+        y: 157.57142857142856
+      positionAbsolute:
+        x: 1256
+        y: 157.57142857142856
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -99.14219705286143
+      y: 102.39518954610362
+      zoom: 0.36181730936009443
